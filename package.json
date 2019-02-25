@@ -1,0 +1,19 @@
+{
+  "name": "mfhtml",
+  "version": "1.0.0",
+  "description": "html extention for microfe",
+  "main": "index.js",
+  "author": "Öner Zafer",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "mocha --watch --recursive"
+  },
+  "dependencies": {
+    "jsdom": "^13.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.1"
+  }
+}
