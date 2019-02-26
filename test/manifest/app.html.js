@@ -1,11 +1,29 @@
 exports.app = `
 <html lang="en">
     <head>
-        <meta mf-import="SomeApp1">
-        <meta mf-import="SomeApp2">
-        <meta mf-import="SomeApp3">
-        <meta mf-define="SampleApp" mf-resolves="/sampleapp/*" mf-extends="ExtendableApp" mf-implements="page">
+        <meta import="SomeApp1">
+        <meta import="SomeApp2">
+        <meta import="SomeApp3">
+        <meta export="SampleApp" export-as="/sampleapp/*" extends="ExtendableApp" of-type="page">
+        <title override>SomeApp Title</title>
+        <link resource src="/some.scss">
+        <style resource>
+            html, body {
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                background: #000000;
+                color: #ffffff;
+            }
+        </style>
     </head>
     <body>
+        <div public="header">Overrideable</div>
+        <div override="content-area"></div>
+        <script resource>
+            console.log('SomeApp is running');        
+        </script>
+        <script resource src="someapp.js"></script>
     </body>
 </html>`;
