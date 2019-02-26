@@ -51,4 +51,10 @@ describe('Manifest', () => {
         .to.have.property('publics')
         .with.lengthOf(1);
   });
+
+  it('should have content', () => {
+    expect(mfhtml.manifest(parsedApp))
+        .to.have.property('content')
+        .with.equal(` <div public="header">Overrideable</div> <div override="content-area"></div> `);
+  });
 });
