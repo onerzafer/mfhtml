@@ -6,14 +6,13 @@ const Expected = require('./app.html').Expected;
 
 const someAppParsed = mfhtml.parse(someApp);
 const someApp1Parsed = mfhtml.parse(someApp1);
-const someAppManifest = mfhtml.manifest(someAppParsed);
 const someApp1Manifest = mfhtml.manifest(someApp1Parsed);
 
 describe('Import', () => {
-    it('should replace SomeApp1 fragment', () => {
+    it('should replace SomeApp1 fragment ad produced expected html', () => {
         const imported = mfhtml.import(someAppParsed, {SomeApp1: someApp1Manifest});
         const serialized = mfhtml.serialize(imported);
         expect(serialized)
-            .to.be.equal(Expected)
-    })
+            .to.be.equal(mfhtml.minify(Expected))
+    });
 });

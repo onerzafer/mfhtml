@@ -26,16 +26,19 @@ exports.SomeApp1 = `
     </body>
 </html>`;
 
-
 exports.Expected = `
-<html lang="en"><head>
+<html lang="en">
+    <head>
         <meta export="SampleApp">
         <title>SomeApp Title</title>
-        <link href="someapp.css">
-        <link href="someapp1.css">
+        <link resource="resource" href="someapp.css">
+        <link resource="resource" href="someapp1.css">
     </head>
     <body>
-        <someapp1> <div>Some App 1 body</div> </someapp1>
-        <script src="someapp.js"></script>
-        <script src="someapp1.js"></script>
-</body></html>`;
+        <someapp1>
+            <div>Some App 1 body</div>
+        </someapp1>
+        <script resource="resource" src="someapp.js"></script>
+        <script resource="resource" src="someapp1.js"></script>
+    </body>
+</html>`;
