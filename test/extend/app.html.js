@@ -1,14 +1,13 @@
 exports.SomeApp = `
 <html lang="en">
     <head>
-        <meta import="SomeApp1">
-        <meta export="SampleApp">
+        <meta export="SampleApp" extends="SomeApp1">
         <title>SomeApp Title</title>
         <link resource href="someapp.css">
     </head>
     <body>
-        <fragment name="SomeApp1"></fragment>
-        <fragment name="SomeApp2"></fragment>
+        <div override="content-area"><div>Content Override</div></div>
+        <div override="header-area"><div>Header Override</div></div>
         <script resource src="someapp.js"></script>
     </body>
 </html>`;
@@ -21,7 +20,8 @@ exports.SomeApp1 = `
         <link resource href="someapp1.css">
     </head>
     <body>
-        <div>Some App 1 body</div>
+        <div public="header-area">Header</div>
+        <div public="content-area">Content</div>
         <script resource src="someapp1.js"></script>
     </body>
 </html>`;
@@ -30,15 +30,14 @@ exports.Expected = `
 <html lang="en">
     <head>
         <meta export="SampleApp">
-        <title>SomeApp Title</title>
-        <link resource="resource" href="someapp.css">
+        <title>SomeApp1 Title</title>
         <link resource="resource" href="someapp1.css">
+        <link resource="resource" href="someapp.css">
     </head>
     <body>
-        <someapp1>
-            <div>Some App 1 body</div>
-        </someapp1>
-        <script resource="resource" src="someapp.js"></script>
+        <header-area><div>Header Override</div></header-area>
+        <content-area><div>Content Override</div></content-area>
         <script resource="resource" src="someapp1.js"></script>
+        <script resource="resource" src="someapp.js"></script>
     </body>
 </html>`;

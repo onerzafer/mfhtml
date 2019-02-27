@@ -4,12 +4,12 @@ const someApp = require('./app.html').SomeApp;
 const someApp1 = require('./app.html').SomeApp1;
 const Expected = require('./app.html').Expected;
 
-const someAppParsed = mfhtml.parse(someApp);
-const someApp1Manifest = mfhtml.manifest(mfhtml.parse(someApp1));
+const someApp1Parsed = mfhtml.parse(someApp1);
+const someAppManifest = mfhtml.manifest(mfhtml.parse(someApp));
 
-describe('Import', () => {
-    it('should replace fragment and produce expected html', () => {
-        const imported = mfhtml.import(someAppParsed, { SomeApp1: someApp1Manifest });
+describe('Extend', () => {
+    it('should extend SomeApp1 with SomeApp and produced expected html', () => {
+        const imported = mfhtml.extend(someApp1Parsed, someAppManifest);
         const serialized = mfhtml.serialize(imported);
         expect(serialized).to.be.equal(mfhtml.minify(Expected));
     });
