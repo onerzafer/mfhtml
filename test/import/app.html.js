@@ -9,6 +9,9 @@ exports.SomeApp = `
     <body>
         <fragment name="SomeApp1"></fragment>
         <fragment name="SomeApp2"></fragment>
+        <fragment name="SomeApp1"></fragment>
+        <fragment name="SomeApp3"></fragment>
+        <fragment name="SomeApp1"></fragment>
         <script resource>
             console.log('SomeApp is running');        
         </script>
@@ -38,6 +41,12 @@ exports.Expected = `
         <link resource="resource" href="someapp1.css">
     </head>
     <body>
+        <someapp1>
+            <div>Some App 1 body</div>
+        </someapp1>
+        <someapp1>
+            <div>Some App 1 body</div>
+        </someapp1>
         <someapp1>
             <div>Some App 1 body</div>
         </someapp1>
