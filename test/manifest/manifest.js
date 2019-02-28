@@ -1,7 +1,7 @@
 const mfhtml = require('../../index');
 const expect = require('chai').expect;
 const testHtmls = require('./app.html');
-const parsedApp = mfhtml.parse(testHtmls.app);
+const parsedApp = testHtmls.app;
 
 describe('Manifest', () => {
     it('should have appName', () => {
@@ -55,6 +55,12 @@ describe('Manifest', () => {
   it('should have content', () => {
     expect(mfhtml.manifest(parsedApp))
         .to.have.property('content')
-        .with.equal(` <div public="header">Overrideable</div> <div override="content-area"></div> `);
+        .with.equal(mfhtml.minify(` <div public="header">Overrideable</div> <div override="content-area"></div> `));
   });
+
+    it('should have raw', () => {
+        expect(mfhtml.manifest(parsedApp))
+            .to.have.property('raw')
+            .with.equal(mfhtml.minify(parsedApp));
+    });
 });
