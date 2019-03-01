@@ -7,7 +7,7 @@ exports.SomeApp = `
     </head>
     <body>
         <div override="content-area"><div>Content Override</div></div>
-        <div override="header-area"><div>Header Override</div></div>
+        <div override="header-area"><div><super></super> Override</div></div>
         <script resource src="someapp.js"></script>
     </body>
 </html>`;
