@@ -16,9 +16,9 @@ describe('Manifest', () => {
             .with.lengthOf(3);
     });
 
-    it('should have route', () => {
+    it('should have alias', () => {
         expect(manifest(testHtmls.app))
-            .to.have.property('route')
+            .to.have.property('alias')
             .with.equal('/sampleapp/*');
     });
 
