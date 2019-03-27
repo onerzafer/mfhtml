@@ -58,10 +58,10 @@ describe('MFHTML runtime', () => {
     });
 
     it('should should return empty array on getMissingDependencies', () => {
-        expect(mfhtml.getDependencies('NoDepApp')).to.be.deep.equal([]);
+        expect(mfhtml.getMissingDependencies('NoDepApp')).to.be.deep.equal([]);
     });
 
     it('should should throw error on getMissingDependencies for unregistered app', () => {
-        expect(() => mfhtml.getDependencies('SomeNonRegisteredApp')).to.throw('SomeNonRegisteredApp is not registered!');
+        expect(() => mfhtml.getMissingDependencies('SomeNonRegisteredApp')).to.throw('SomeNonRegisteredApp is not registered!');
     });
 });
