@@ -1,9 +1,60 @@
 const MFHTML = require('../../lib/mfhtml');
-const mfhtml = new MFHTML();
 const expect = require('chai').expect;
 const mock = require('./mock.html');
 
 describe('MFHTML runtime', () => {
+
+    let mfhtml;
+
+    beforeEach(() => {
+        mfhtml = new MFHTML();
+    });
+
+    it("swhould throw exeption => undefined import 'SomeApp1'", () => {
+        mfhtml.register(mock.App);
+        expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp1'");
+    });
+
+    it("swhould throw exeption => undefined import 'SomeApp2'", () => {
+        mfhtml.register(mock.App);
+        mfhtml.register(mock.SomeApp1);
+        expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp2'");
+    });
+
+    it("swhould throw exeption => undefined import 'SomeApp3'", () => {
+        mfhtml.register(mock.App);
+        mfhtml.register(mock.SomeApp1);
+        mfhtml.register(mock.SomeApp2);
+        expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp3'");
+    });
+
+    it("swhould throw exeption => undefined super 'ExtendableApp'", () => {
+        mfhtml.register(mock.App);
+        mfhtml.register(mock.SomeApp1);
+        mfhtml.register(mock.SomeApp2);
+        mfhtml.register(mock.SomeApp3);
+        expect(() => mfhtml.get('SampleApp')).to.throw("undefined super 'ExtendableApp'");
+    });
+
+    it("swhould return string", () => {
+        mfhtml.register(mock.App);
+        mfhtml.register(mock.SomeApp1);
+        mfhtml.register(mock.SomeApp2);
+        mfhtml.register(mock.SomeApp3);
+        mfhtml.register(mock.ExtendableApp);
+        expect(mfhtml.get('SampleApp')).to.be.string();
+    });
+
+    it("swhould throw exeption => unused import 'SomeApp3'", () => {
+        mfhtml.strict(true);
+        mfhtml.register(mock.App);
+        mfhtml.register(mock.SomeApp1);
+        mfhtml.register(mock.SomeApp2);
+        mfhtml.register(mock.SomeApp3);
+        mfhtml.register(mock.ExtendableApp);
+        expect(() => mfhtml.get('SampleApp')).to.throw("undefined super 'ExtendableApp'");
+    });
+
     it('should have length 0', () => {
         expect(mfhtml.length()).to.be.equal(0);
     });
@@ -30,10 +81,12 @@ describe('MFHTML runtime', () => {
     });
 
     it('should return NoDepApp prepared html', () => {
+        mfhtml.register(mock.noDependencyApp);
        expect(mfhtml.get('NoDepApp')).is.a('string');
     });
 
     it('should return NoDepApp manifest', () => {
+        mfhtml.register(mock.noDependencyApp);
         expect(mfhtml.getManifest('NoDepApp')).to.deep.equal(mock.noDependencyAppManifest);
     });
 
@@ -50,6 +103,7 @@ describe('MFHTML runtime', () => {
     });
 
     it('should should return empty array on getDependencies', () => {
+        mfhtml.register(mock.noDependencyApp);
         expect(mfhtml.getDependencies('NoDepApp')).to.be.deep.equal([]);
     });
 
@@ -58,6 +112,7 @@ describe('MFHTML runtime', () => {
     });
 
     it('should should return empty array on getMissingDependencies', () => {
+        mfhtml.register(mock.noDependencyApp);
         expect(mfhtml.getMissingDependencies('NoDepApp')).to.be.deep.equal([]);
     });
 
