@@ -1,4 +1,4 @@
-exports.SomeApp = `
+exports.SomeApp = /*html*/`
 <html lang="en">
     <head>
         <meta export="SampleApp" extends="SomeApp1">
@@ -12,7 +12,7 @@ exports.SomeApp = `
     </body>
 </html>`;
 
-exports.SomeApp1 = `
+exports.SomeApp1 = /*html*/`
 <html lang="en">
     <head>
         <meta export="SampleApp1">
@@ -26,7 +26,7 @@ exports.SomeApp1 = `
     </body>
 </html>`;
 
-exports.Expected = `
+exports.Expected = /*html*/`
 <html lang="en">
     <head>
         <meta export="SampleApp">

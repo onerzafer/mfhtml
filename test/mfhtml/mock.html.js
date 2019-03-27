@@ -60,9 +60,10 @@ exports.App = /*html*/`
     </head>
     <body>
         <div public="header">Overrideable</div>
-        <div override="content-area"></div>
-        <fragment name="SomeApp1"></fragment>
-        <fragment name="SomeApp2"></fragment>
+        <div override="content-area">
+            <fragment name="SomeApp1"></fragment>
+            <fragment name="SomeApp2"></fragment>
+        </div>
         <script resource>
             console.log('SomeApp is running');        
         </script>

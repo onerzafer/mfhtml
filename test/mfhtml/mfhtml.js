@@ -11,17 +11,20 @@ describe('MFHTML runtime', () => {
     });
 
     it("swhould throw exeption => undefined import 'SomeApp1'", () => {
+        mfhtml.register(mock.ExtendableApp);
         mfhtml.register(mock.App);
         expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp1'");
     });
 
     it("swhould throw exeption => undefined import 'SomeApp2'", () => {
+        mfhtml.register(mock.ExtendableApp);
         mfhtml.register(mock.App);
         mfhtml.register(mock.SomeApp1);
         expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp2'");
     });
 
     it("swhould throw exeption => undefined import 'SomeApp3'", () => {
+        mfhtml.register(mock.ExtendableApp);
         mfhtml.register(mock.App);
         mfhtml.register(mock.SomeApp1);
         mfhtml.register(mock.SomeApp2);
@@ -42,17 +45,7 @@ describe('MFHTML runtime', () => {
         mfhtml.register(mock.SomeApp2);
         mfhtml.register(mock.SomeApp3);
         mfhtml.register(mock.ExtendableApp);
-        expect(mfhtml.get('SampleApp')).to.be.string();
-    });
-
-    it("swhould throw exeption => unused import 'SomeApp3'", () => {
-        mfhtml.strict(true);
-        mfhtml.register(mock.App);
-        mfhtml.register(mock.SomeApp1);
-        mfhtml.register(mock.SomeApp2);
-        mfhtml.register(mock.SomeApp3);
-        mfhtml.register(mock.ExtendableApp);
-        expect(() => mfhtml.get('SampleApp')).to.throw("undefined super 'ExtendableApp'");
+        expect(mfhtml.get('SampleApp')).is.a('string');
     });
 
     it('should have length 0', () => {
