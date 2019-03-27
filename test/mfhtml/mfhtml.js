@@ -30,7 +30,7 @@ describe('MFHTML runtime', () => {
     });
 
     it('should return NoDepApp prepared html', () => {
-       expect(mfhtml.get('NoDepApp')).to.be.string();
+       expect(mfhtml.get('NoDepApp')).is.a('string');
     });
 
     it('should return NoDepApp manifest', () => {
