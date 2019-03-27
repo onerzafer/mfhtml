@@ -10,20 +10,20 @@ describe('MFHTML runtime', () => {
         mfhtml = new MFHTML();
     });
 
-    it("swhould throw exeption => undefined import 'SomeApp1'", () => {
+    it("should throw exeption => undefined import 'SomeApp1'", () => {
         mfhtml.register(mock.ExtendableApp);
         mfhtml.register(mock.App);
         expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp1'");
     });
 
-    it("swhould throw exeption => undefined import 'SomeApp2'", () => {
+    it("should throw exeption => undefined import 'SomeApp2'", () => {
         mfhtml.register(mock.ExtendableApp);
         mfhtml.register(mock.App);
         mfhtml.register(mock.SomeApp1);
         expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp2'");
     });
 
-    it("swhould throw exeption => undefined import 'SomeApp3'", () => {
+    it("should throw exeption => undefined import 'SomeApp3'", () => {
         mfhtml.register(mock.ExtendableApp);
         mfhtml.register(mock.App);
         mfhtml.register(mock.SomeApp1);
@@ -31,7 +31,7 @@ describe('MFHTML runtime', () => {
         expect(() => mfhtml.get('SampleApp')).to.throw("undefined import 'SomeApp3'");
     });
 
-    it("swhould throw exeption => undefined super 'ExtendableApp'", () => {
+    it("should throw exeption => undefined super 'ExtendableApp'", () => {
         mfhtml.register(mock.App);
         mfhtml.register(mock.SomeApp1);
         mfhtml.register(mock.SomeApp2);
@@ -39,7 +39,7 @@ describe('MFHTML runtime', () => {
         expect(() => mfhtml.get('SampleApp')).to.throw("undefined super 'ExtendableApp'");
     });
 
-    it("swhould return string", () => {
+    it("should return string", () => {
         mfhtml.register(mock.App);
         mfhtml.register(mock.SomeApp1);
         mfhtml.register(mock.SomeApp2);
