@@ -1,7 +1,7 @@
 {
   "name": "mfhtml",
   "version": "1.0.0",
-  "description": "html extention for microfe",
+  "description": "html extensions for microfe",
   "main": "index.js",
   "author": "Öner Zafer",
   "license": "MIT",
@@ -11,12 +11,10 @@
   },
   "dependencies": {
     "html-minifier": "^3.5.21",
-    "jsdom": "^13.2.0",
-    "nyc": "^13.3.0"
+    "jsdom": "^13.2.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "flow-bin": "^0.95.1",
     "mocha": "^6.0.1"
   }
 }
