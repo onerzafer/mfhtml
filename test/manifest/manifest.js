@@ -22,9 +22,9 @@ describe('Manifest', () => {
             .with.equal('/sampleapp/*');
     });
 
-    it('should have extends', () => {
+    it('should have extending', () => {
         expect(manifest(testHtmls.app))
-            .to.have.property('extends')
+            .to.have.property('extending')
             .with.equal('ExtendableApp');
     });
 
