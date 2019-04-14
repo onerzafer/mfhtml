@@ -1,4 +1,4 @@
 // PUBLIC API
-const mfhtml = require('lib/mfhtml');
+const mfhtml = require('./lib/mfhtml');
 
 module.exports = mfhtml;
