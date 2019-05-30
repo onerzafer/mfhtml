@@ -1,4 +1,4 @@
-exports.app = /*html*/`
+exports.app = /*html*/ `
 <html lang="en">
     <head>
         <meta import="SomeApp1">
@@ -6,7 +6,7 @@ exports.app = /*html*/`
         <meta import="SomeApp3">
         <meta export="SampleApp" export-as="/sampleapp/*" extends="ExtendableApp" of-type="page">
         <title override>SomeApp Title</title>
-        <link resource src="/some.scss">
+        <link resource href="/some.scss">
         <style resource>
             html, body {
                 padding: 0;

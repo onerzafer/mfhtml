@@ -10,9 +10,9 @@ const someAppParsed = utils.parse(someApp);
 const someApp1Manifest = manifest(someApp1);
 
 describe('Import', () => {
-    it('should replace fragment and produce expected html', () => {
-        const processed = _import(someAppParsed, { SomeApp1: someApp1Manifest });
-        const serialized = utils.serialize(processed);
-        expect(serialized).to.be.equal(utils.minify(Expected));
-    });
+  it('should replace fragment and produce expected html', () => {
+    const processed = _import(someAppParsed, { SomeApp1: someApp1Manifest });
+    const serialized = utils.serialize(processed);
+    expect(serialized).to.be.equal(utils.minify(Expected));
+  });
 });

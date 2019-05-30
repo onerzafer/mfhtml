@@ -1,13 +1,13 @@
 const utils = require('../../lib/utils');
 
-exports.badHtml = /*html*/`
+exports.badHtml = /*html*/ `
     <html lang="en-US">
         <title>Bad Html</title>
         <body>Bad Html Body</body>
     </html>
 `;
 
-const noDependencyApp = /*html*/`
+const noDependencyApp = /*html*/ `
     <html lang="en-US">
         <meta export="NoDepApp">
         <title>No dependency App</title>
@@ -26,19 +26,19 @@ const noDependencyApp = /*html*/`
 exports.noDependencyApp = noDependencyApp;
 
 exports.noDependencyAppManifest = {
-    appName: 'NoDepApp',
-    type: 'page',
-    bundle: [
-        {
-            type: 'STYLE',
-            content: 'body, html { padding: 0; margin: 0; }',
-        },
-    ],
-    content: '<div class="container">Container of NoDepApp</div>',
-    raw: utils.minify(noDependencyApp),
+  appName: 'NoDepApp',
+  type: 'page',
+  bundle: [
+    {
+      type: 'STYLE',
+      content: 'body, html { padding: 0; margin: 0; }',
+    },
+  ],
+  content: '<div class="container">Container of NoDepApp</div>',
+  raw: utils.minify(noDependencyApp),
 };
 
-exports.App = /*html*/`
+exports.App = /*html*/ `
 <html lang="en">
     <head>
         <meta import="SomeApp1">
@@ -46,7 +46,7 @@ exports.App = /*html*/`
         <meta import="SomeApp3">
         <meta export="SampleApp" export-as="/sampleapp/*" extends="ExtendableApp" of-type="page">
         <title override>SomeApp Title</title>
-        <link resource src="/some.scss">
+        <link resource href="/some.scss">
         <style resource>
             html, body {
                 padding: 0;
@@ -71,12 +71,12 @@ exports.App = /*html*/`
     </body>
 </html>`;
 
-exports.SomeApp1 = /*html*/`
+exports.SomeApp1 = /*html*/ `
 <html lang="en">
     <head>
         <meta export="SomeApp1">
         <title>SomeApp Title</title>
-        <link resource src="/some1.scss">
+        <link resource href="/some1.scss">
     </head>
     <body>
         Some App1 Content
@@ -84,12 +84,12 @@ exports.SomeApp1 = /*html*/`
     </body>
 </html>`;
 
-exports.SomeApp2 = /*html*/`
+exports.SomeApp2 = /*html*/ `
 <html lang="en">
     <head>
         <meta export="SomeApp2">
         <title>SomeApp Title</title>
-        <link resource src="/some3.scss">
+        <link resource href="/some3.scss">
     </head>
     <body>
         Some App1 Content
@@ -97,12 +97,12 @@ exports.SomeApp2 = /*html*/`
     </body>
 </html>`;
 
-exports.SomeApp3 = /*html*/`
+exports.SomeApp3 = /*html*/ `
 <html lang="en">
     <head>
         <meta export="SomeApp3">
         <title>SomeApp Title</title>
-        <link resource src="/some3.scss">
+        <link resource href="/some3.scss">
     </head>
     <body>
         Some App1 Content
@@ -110,7 +110,7 @@ exports.SomeApp3 = /*html*/`
     </body>
 </html>`;
 
-exports.ExtendableApp = /*html*/`
+exports.ExtendableApp = /*html*/ `
 <html lang="en">
     <head>
         <meta export="ExtendableApp">
@@ -123,4 +123,3 @@ exports.ExtendableApp = /*html*/`
         <script resource src="super.js"></script>
     </body>
 </html>`;
-
