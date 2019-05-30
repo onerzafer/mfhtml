@@ -93,7 +93,7 @@ describe('MFHTML runtime', () => {
 
     it('should throw error for non existent alias', () => {
         mfhtml.register(mock.App);
-        expect(() => mfhtml.getByAlias('/none/existing/alias/*')).to.throw(
+        expect(() => mfhtml.getAppNameByAlias('/none/existing/alias/*')).to.throw(
             'an app with alias "/none/existing/alias/*" is not registered!'
         );
     });
@@ -104,7 +104,7 @@ describe('MFHTML runtime', () => {
         mfhtml.register(mock.SomeApp2);
         mfhtml.register(mock.SomeApp3);
         mfhtml.register(mock.ExtendableApp);
-        expect(mfhtml.getByAlias('/sampleapp/*')).is.a('string');
+        expect(mfhtml.getAppNameByAlias('/sampleapp/*')).is.equal('SampleApp');
     });
 
     it('should throw error on getMeta for unregistered app', () => {
