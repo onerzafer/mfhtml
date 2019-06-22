@@ -41,7 +41,6 @@ exports.noDependencyAppManifest = {
 exports.App = /*html*/ `
 <html lang="en">
     <head>
-        <meta import="SomeApp1">
         <meta import="SomeApp2">
         <meta import="SomeApp3">
         <meta export="SampleApp" export-as="/sampleapp/*" extends="ExtendableApp" of-type="page">
@@ -61,7 +60,6 @@ exports.App = /*html*/ `
     <body>
         <div public="header">Overrideable</div>
         <div override="content-area">
-            <fragment name="SomeApp1"></fragment>
             <fragment name="SomeApp2"></fragment>
         </div>
         <script resource>
@@ -113,6 +111,7 @@ exports.SomeApp3 = /*html*/ `
 exports.ExtendableApp = /*html*/ `
 <html lang="en">
     <head>
+        <meta import="SomeApp1">
         <meta export="ExtendableApp">
         <title>Super Title</title>
         <link resource href="super.css">
@@ -120,6 +119,7 @@ exports.ExtendableApp = /*html*/ `
     <body>
         <div public="header-area">Header</div>
         <div public="content-area">Content</div>
+        <fragment name="SomeApp1"></fragment>
         <script resource src="super.js"></script>
     </body>
 </html>`;

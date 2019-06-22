@@ -169,10 +169,18 @@ describe('MFHTML runtime', () => {
     expect(mfhtml.getDependencies('NoDepApp')).to.be.deep.equal([]);
   });
 
-  it('should should throw error on getDependencies for unregistered app', () => {
-    expect(() => mfhtml.getDependencies('SomeNonRegisteredApp')).to.throw(
-      'SomeNonRegisteredApp is not registered!'
-    );
+  it('should should return an array on getDependencies', () => {
+    mfhtml.register(mock.App);
+    mfhtml.register(mock.SomeApp1);
+    mfhtml.register(mock.SomeApp2);
+    mfhtml.register(mock.SomeApp3);
+    mfhtml.register(mock.ExtendableApp);
+    expect(mfhtml.getDependencies('SampleApp').sort()).to.be.deep.equal([
+      'SomeApp1',
+      'SomeApp2',
+      'SomeApp3',
+      'ExtendableApp',
+    ].sort());
   });
 
   it('should should return an empty array on getMissingDependencies', () => {
@@ -182,17 +190,11 @@ describe('MFHTML runtime', () => {
 
   it('should should return an array on getMissingDependencies', () => {
     mfhtml.register(mock.App);
-    expect(mfhtml.getMissingDependencies('SampleApp')).to.be.deep.equal([
+    mfhtml.register(mock.ExtendableApp);
+    expect(mfhtml.getMissingDependencies('SampleApp').sort()).to.be.deep.equal([
       'SomeApp1',
       'SomeApp2',
       'SomeApp3',
-      'ExtendableApp',
-    ]);
-  });
-
-  it('should should throw error on getMissingDependencies for unregistered app', () => {
-    expect(() =>
-      mfhtml.getMissingDependencies('SomeNonRegisteredApp')
-    ).to.throw('SomeNonRegisteredApp is not registered!');
+    ].sort());
   });
 });
