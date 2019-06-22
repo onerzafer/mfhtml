@@ -175,12 +175,9 @@ describe('MFHTML runtime', () => {
     mfhtml.register(mock.SomeApp2);
     mfhtml.register(mock.SomeApp3);
     mfhtml.register(mock.ExtendableApp);
-    expect(mfhtml.getDependencies('SampleApp').sort()).to.be.deep.equal([
-      'SomeApp1',
-      'SomeApp2',
-      'SomeApp3',
-      'ExtendableApp',
-    ].sort());
+    expect(mfhtml.getDependencies('SampleApp').sort()).to.be.deep.equal(
+      ['SomeApp1', 'SomeApp2', 'SomeApp3', 'ExtendableApp'].sort()
+    );
   });
 
   it('should should return an empty array on getMissingDependencies', () => {
@@ -191,10 +188,8 @@ describe('MFHTML runtime', () => {
   it('should should return an array on getMissingDependencies', () => {
     mfhtml.register(mock.App);
     mfhtml.register(mock.ExtendableApp);
-    expect(mfhtml.getMissingDependencies('SampleApp').sort()).to.be.deep.equal([
-      'SomeApp1',
-      'SomeApp2',
-      'SomeApp3',
-    ].sort());
+    expect(mfhtml.getMissingDependencies('SampleApp').sort()).to.be.deep.equal(
+      ['SomeApp1', 'SomeApp2', 'SomeApp3'].sort()
+    );
   });
 });
