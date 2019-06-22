@@ -30,6 +30,9 @@ exports.noDependencyAppManifest = {
   type: 'page',
   bundle: [
     {
+      attributes: {
+        resource: '',
+      },
       type: 'STYLE',
       content: 'body, html { padding: 0; margin: 0; }',
     },

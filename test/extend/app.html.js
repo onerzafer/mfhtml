@@ -3,7 +3,7 @@ exports.SomeApp = /*html*/ `
     <head>
         <meta export="SampleApp" extends="SomeApp1">
         <title>SomeApp Title</title>
-        <link resource href="someapp.css">
+        <link resource href="someapp.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div override="content-area"><div>Content Override</div></div>
@@ -17,7 +17,7 @@ exports.SomeApp1 = /*html*/ `
     <head>
         <meta export="SampleApp1">
         <title>SomeApp1 Title</title>
-        <link resource href="someapp1.css">
+        <link resource href="someapp1.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div public="header-area">Header</div>
@@ -31,8 +31,8 @@ exports.Expected = /*html*/ `
     <head>
         <meta export="SampleApp">
         <title>SomeApp1 Title</title>
-        <link resource="resource" href="someapp1.css">
-        <link resource="resource" href="someapp.css">
+        <link resource="resource" href="someapp1.css" rel="stylesheet" type="text/css">
+        <link resource="resource" href="someapp.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <header-area><div>Header Override</div></header-area>
