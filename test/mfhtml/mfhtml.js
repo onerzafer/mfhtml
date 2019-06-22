@@ -68,7 +68,7 @@ describe('MFHTML runtime', () => {
     expect(mfhtml.length()).to.be.equal(5);
   });
 
-  it('should should return empty array on getAppNames', () => {
+  it('should return empty array on getAppNames', () => {
     expect(mfhtml.getAppNames()).to.be.deep.equal([]);
   });
 
@@ -160,16 +160,16 @@ describe('MFHTML runtime', () => {
     ]);
   });
 
-  it('should should return empty array on getAliases', () => {
+  it('should return empty array on getAliases', () => {
     expect(mfhtml.getAliases()).to.be.deep.equal([]);
   });
 
-  it('should should return empty array on getDependencies', () => {
+  it('should return empty array on getDependencies', () => {
     mfhtml.register(mock.noDependencyApp);
     expect(mfhtml.getDependencies('NoDepApp')).to.be.deep.equal([]);
   });
 
-  it('should should return an array on getDependencies', () => {
+  it('should return an array on getDependencies', () => {
     mfhtml.register(mock.App);
     mfhtml.register(mock.SomeApp1);
     mfhtml.register(mock.SomeApp2);
@@ -180,16 +180,25 @@ describe('MFHTML runtime', () => {
     );
   });
 
-  it('should should return an empty array on getMissingDependencies', () => {
+  it('should return an empty array on getMissingDependencies', () => {
     mfhtml.register(mock.noDependencyApp);
     expect(mfhtml.getMissingDependencies('NoDepApp')).to.be.deep.equal([]);
   });
 
-  it('should should return an array on getMissingDependencies', () => {
+  it('should return an array on getMissingDependencies', () => {
     mfhtml.register(mock.App);
     mfhtml.register(mock.ExtendableApp);
     expect(mfhtml.getMissingDependencies('SampleApp').sort()).to.be.deep.equal(
       ['SomeApp1', 'SomeApp2', 'SomeApp3'].sort()
     );
+  });
+
+  it('should clean privates', () => {
+    mfhtml.register(mock.App);
+    mfhtml.register(mock.SomeApp1);
+    mfhtml.register(mock.SomeApp2);
+    mfhtml.register(mock.SomeApp3);
+    mfhtml.register(mock.ExtendableApp);
+    expect(mfhtml.get('SampleApp').search('private')).to.be.equal(-1);
   });
 });

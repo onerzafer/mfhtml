@@ -92,6 +92,7 @@ exports.SomeApp2 = /*html*/ `
     <body>
         Some App1 Content
         <script resource src="someapp3.js"></script>
+        <div private></div>
     </body>
 </html>`;
 
@@ -103,6 +104,7 @@ exports.SomeApp3 = /*html*/ `
         <link resource href="/some3.scss">
     </head>
     <body>
+        <div private></div>
         Some App1 Content
         <script resource src="someapp3.js"></script>
     </body>
@@ -117,6 +119,7 @@ exports.ExtendableApp = /*html*/ `
         <link resource href="super.css">
     </head>
     <body>
+        <div private></div>
         <div public="header-area">Header</div>
         <div public="content-area">Content</div>
         <fragment name="SomeApp1"></fragment>
