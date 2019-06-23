@@ -18,6 +18,11 @@ exports.SomeApp1 = /*html*/ `
         <meta export="SampleApp1">
         <title public>SomeApp1 Title</title>
         <link resource href="someapp1.css" rel="stylesheet" type="text/css">
+        <style>body {padding: 0;}</style>
+        <link href="some.mock.css">
+        <script>
+            console.log('non-resource js');
+        </script>
     </head>
     <body>
         <div public="header-area">Header</div>
