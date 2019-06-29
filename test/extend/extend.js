@@ -11,8 +11,8 @@ const someAppManifest = manifest(someApp);
 
 describe('Extend', () => {
   it('should extend SomeApp1 with SomeApp and produced expected html', () => {
-    const processed = extend(someApp1Parsed, someAppManifest);
-    const serialized = utils.serialize(processed);
+    extend(someApp1Parsed, someAppManifest);
+    const serialized = utils.serialize(someApp1Parsed);
     expect(serialized).to.be.equal(utils.minify(Expected));
   });
 });

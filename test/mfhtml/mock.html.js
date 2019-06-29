@@ -1,13 +1,13 @@
 const utils = require('../../lib/utils');
 
-exports.badHtml = /*html*/ `
+exports.badHtml = `
     <html lang="en-US">
         <title>Bad Html</title>
         <body>Bad Html Body</body>
     </html>
 `;
 
-const noDependencyApp = /*html*/ `
+const noDependencyApp = `
     <html lang="en-US">
         <meta export="NoDepApp">
         <title>No dependency App</title>
@@ -41,7 +41,7 @@ exports.noDependencyAppManifest = {
   raw: utils.minify(noDependencyApp),
 };
 
-exports.App = /*html*/ `
+exports.App = `
 <html lang="en">
     <head>
         <meta import="SomeApp2">
@@ -72,7 +72,7 @@ exports.App = /*html*/ `
     </body>
 </html>`;
 
-exports.SomeApp1 = /*html*/ `
+exports.SomeApp1 = `
 <html lang="en">
     <head>
         <meta export="SomeApp1">
@@ -85,7 +85,7 @@ exports.SomeApp1 = /*html*/ `
     </body>
 </html>`;
 
-exports.SomeApp2 = /*html*/ `
+exports.SomeApp2 = `
 <html lang="en">
     <head>
         <meta export="SomeApp2">
@@ -99,7 +99,7 @@ exports.SomeApp2 = /*html*/ `
     </body>
 </html>`;
 
-exports.SomeApp3 = /*html*/ `
+exports.SomeApp3 = `
 <html lang="en">
     <head>
         <meta export="SomeApp3">
@@ -113,7 +113,7 @@ exports.SomeApp3 = /*html*/ `
     </body>
 </html>`;
 
-exports.ExtendableApp = /*html*/ `
+exports.ExtendableApp = `
 <html lang="en">
     <head>
         <meta import="SomeApp1">

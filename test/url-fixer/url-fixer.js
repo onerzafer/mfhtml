@@ -6,52 +6,52 @@ const Expected = require('./app.html').Expected;
 
 describe('Url Fix', () => {
   it('should fix img url', () => {
-    const dom = utils.parse(someApp);
-    urlFix(dom, 'http://some.domain.name');
-    expect(
-      dom.window.document.getElementById('img1').getAttribute('src')
-    ).to.be.equal('http://some.domain.name/assets/someimage.jpg');
+    const $ = utils.parse(someApp);
+    urlFix($, 'http://some.domain.name');
+    expect($('#img1').attr('src')).to.be.equal(
+      'http://some.domain.name/assets/someimage.jpg'
+    );
   });
 
   it('should fix link url', () => {
-    const dom = utils.parse(someApp);
-    urlFix(dom, 'http://some.domain.name');
-    expect(
-      dom.window.document.getElementById('link1').getAttribute('href')
-    ).to.be.equal('http://some.domain.name/someapp.css');
+    const $ = utils.parse(someApp);
+    urlFix($, 'http://some.domain.name');
+    expect($('#link1').attr('href')).to.be.equal(
+      'http://some.domain.name/someapp.css'
+    );
   });
 
   it('should not fix link absolute url', () => {
-    const dom = utils.parse(someApp);
-    urlFix(dom, 'http://some.domain.name');
-    expect(
-      dom.window.document.getElementById('link2').getAttribute('href')
-    ).to.be.equal('https://cdn.server.com/someapp.css?13456');
+    const $ = utils.parse(someApp);
+    urlFix($, 'http://some.domain.name');
+    expect($('#link2').attr('href')).to.be.equal(
+      'https://cdn.server.com/someapp.css?13456'
+    );
   });
 
   it('should fix script url', () => {
-    const dom = utils.parse(someApp);
-    urlFix(dom, 'http://some.domain.name');
-    expect(
-      dom.window.document.getElementById('script1').getAttribute('src')
-    ).to.be.equal('http://some.domain.name/js/someapp.js');
+    const $ = utils.parse(someApp);
+    urlFix($, 'http://some.domain.name');
+    expect($('#script1').attr('src')).to.be.equal(
+      'http://some.domain.name/js/someapp.js'
+    );
   });
 
   it('should fix video src and poster url', () => {
-    const dom = utils.parse(someApp);
-    urlFix(dom, 'http://some.domain.name');
-    expect(
-      dom.window.document.getElementById('video1').getAttribute('poster')
-    ).to.be.equal('http://some.domain.name/someposter.png');
-    expect(
-      dom.window.document.getElementById('video1').getAttribute('src')
-    ).to.be.equal('http://some.domain.name/somevideo.mpeg');
+    const $ = utils.parse(someApp);
+    urlFix($, 'http://some.domain.name');
+    expect($('#video1').attr('poster')).to.be.equal(
+      'http://some.domain.name/someposter.png'
+    );
+    expect($('#video1').attr('src')).to.be.equal(
+      'http://some.domain.name/somevideo.mpeg'
+    );
   });
 
   it('should fix SomeApp with http://some.domain.name and produce expected html', () => {
-    const dom = utils.parse(someApp);
-    urlFix(dom, 'http://some.domain.name');
-    const serialized = utils.serialize(dom);
+    const $ = utils.parse(someApp);
+    urlFix($, 'http://some.domain.name');
+    const serialized = utils.serialize($);
     expect(serialized).to.be.equal(utils.minify(Expected));
   });
 });

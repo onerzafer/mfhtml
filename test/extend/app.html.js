@@ -1,4 +1,4 @@
-exports.SomeApp = /*html*/ `
+exports.SomeApp = `
 <html lang="en">
     <head>
         <meta export="SampleApp" extends="SomeApp1">
@@ -12,7 +12,7 @@ exports.SomeApp = /*html*/ `
     </body>
 </html>`;
 
-exports.SomeApp1 = /*html*/ `
+exports.SomeApp1 = `
 <html lang="en">
     <head>
         <meta export="SampleApp1">
@@ -31,18 +31,18 @@ exports.SomeApp1 = /*html*/ `
     </body>
 </html>`;
 
-exports.Expected = /*html*/ `
+exports.Expected = `
 <html lang="en">
     <head>
         <meta export="SampleApp">
         <title>SomeApp Title</title>
-        <link resource="resource" href="someapp1.css" rel="stylesheet" type="text/css">
-        <link resource="resource" href="someapp.css" rel="stylesheet" type="text/css">
+        <link resource href="someapp1.css" rel="stylesheet" type="text/css">
+        <link resource href="someapp.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <header-area><div>Header Override</div></header-area>
         <content-area><div>Content Override</div></content-area>
-        <script resource="resource" src="someapp1.js"></script>
-        <script resource="resource" src="someapp.js"></script>
+        <script resource src="someapp1.js"></script>
+        <script resource src="someapp.js"></script>
     </body>
 </html>`;

@@ -1,4 +1,4 @@
-exports.app = /*html*/ `
+exports.app = `
 <html lang="en">
     <head>
         <meta import="SomeApp1">

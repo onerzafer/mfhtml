@@ -78,7 +78,7 @@ describe('MFHTML runtime', () => {
 
   it('should throw error on register with wrong html', () => {
     expect(() => mfhtml.register(mock.badHtml)).to.throw(
-      'Not able to generate manifest for given html'
+        '<meta export> is not available'
     );
   });
 
