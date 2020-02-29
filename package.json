@@ -7,14 +7,16 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "mocha --watch --recursive"
+    "test": "mocha --watch --recursive",
+    "format": "prettier --write \"lib/**/*.js\" \"test/**/*.js\""
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "html-minifier": "^3.5.21"
+    "html-minifier": "^3.5.21",
+    "prettier": "^1.19.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.0.1"
+    "mocha": "^6.2.2"
   }
 }
